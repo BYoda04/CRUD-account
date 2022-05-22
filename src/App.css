@@ -1,38 +1,62 @@
-.App {
-  text-align: center;
+
+.App{
+  padding: 1rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/*MODAL FORM*/
+.modal-content{
+  padding: 1rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.send,.cancel{
+  margin: 1rem;
+}
+.btn-info{
+  margin: 0 1rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/*LIST*/
+.list-group{
+  padding: 2rem;
 }
 
-.App-link {
-  color: #61dafb;
+.list-group-item{
+  padding: .5rem;
+  margin: 1rem;
+  box-shadow: 0px 0px 10px 10px rgba(0,0,0,0.15);
+  -webkit-box-shadow: 0px 0px 10px 10px rgba(0,0,0,0.15);
+  -moz-box-shadow: 0px 0px 10px 10px rgba(0,0,0,0.15);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.user-item{
+  padding: 1rem 0 1rem 1rem;
+}
+
+ion-icon{
+  font-size: 1.5em;
+  margin-right: 1rem;
+}
+
+i{
+  font-size: 2em;
+}
+
+.account{
+  padding: 0;
+  margin-right: 1rem;
+}
+
+.delet-account{
+  color: #dc3545;
+  cursor: pointer;
+}
+
+.edit{
+  border: 0;
+  padding: 0;
+}
+
+.edit-account{
+  color: #0d6efd;
+  cursor: pointer;
 }

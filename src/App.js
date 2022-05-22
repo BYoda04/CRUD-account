@@ -1,23 +1,43 @@
-import logo from './logo.svg';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import './App.css';
+import AccountForm from './components/AccountForm';
+import AccountList from './components/AccountList';
 
 function App() {
+
+  const [accounts,setAccounts] = useState([])
+  const [accountSelected,setAccountSelected] = useState(null);
+
+  useEffect(()=>{
+    axios.get("https://users-crud1.herokuapp.com/users/")
+      .then(r=>setAccounts(r.data))
+  },[])
+
+  const getAccounts= () => {
+    axios
+      .get("https://users-crud1.herokuapp.com/users/")
+      .then((r) => setAccounts(r.data));
+  };
+
+  const deleteAccounts = (accountId)=>{
+    axios.delete(`https://users-crud1.herokuapp.com/users/${accountId}/`)
+      .then(() => {
+          getAccounts()
+          deselectAccount()
+      })
+      .catch((error) => console.log(error.response))
+  }
+
+  const selectAccount = (account) => setAccountSelected(account)
+  const deselectAccount = () => setAccountSelected(null)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='container-fluid'>
+        <AccountForm getAccounts={getAccounts} accountSelected={accountSelected} deselectAccount={deselectAccount}/>
+        <AccountList accounts={accounts} selectAccount={selectAccount} deleteAccounts={deleteAccounts}/>
+      </div>
     </div>
   );
 }
