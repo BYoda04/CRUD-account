@@ -95,8 +95,10 @@ const AccountForm = ({getAccounts,accountSelected,deselectAccount}) => {
                     </div>
                 </div>
             </div>
-            <a className="btn btn-success" data-bs-toggle="modal" href="#exampleModalToggle" role="button" onClick={()=>deselectAccount()}>Create Account</a>
-            <button type="button" class="btn btn-info" onClick={()=>getAccounts()}>Update</button>
+            <div className="fixed-top" id='top'>
+                <a className="btn btn-success" data-bs-toggle="modal" href="#exampleModalToggle" role="button" onClick={()=>deselectAccount()}>Create Account</a>
+                <button type="button" className="btn btn-info" onClick={()=>getAccounts()}>Update</button>
+            </div>
         </>
     );
 };

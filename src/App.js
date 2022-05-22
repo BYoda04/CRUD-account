@@ -8,6 +8,7 @@ function App() {
 
   const [accounts,setAccounts] = useState([])
   const [accountSelected,setAccountSelected] = useState(null);
+  const [id,setId] = useState(null)
 
   useEffect(()=>{
     axios.get("https://users-crud1.herokuapp.com/users/")
@@ -31,12 +32,13 @@ function App() {
 
   const selectAccount = (account) => setAccountSelected(account)
   const deselectAccount = () => setAccountSelected(null)
+  const getID = (id) => setId(id)
 
   return (
     <div className="App">
       <div className='container-fluid'>
         <AccountForm getAccounts={getAccounts} accountSelected={accountSelected} deselectAccount={deselectAccount}/>
-        <AccountList accounts={accounts} selectAccount={selectAccount} deleteAccounts={deleteAccounts}/>
+        <AccountList accounts={accounts} selectAccount={selectAccount} deleteAccounts={deleteAccounts} getId={getID} id={id}/>
       </div>
     </div>
   );
