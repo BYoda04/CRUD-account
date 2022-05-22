@@ -37,8 +37,8 @@ function App() {
   return (
     <div className="App">
       <div className='container-fluid'>
-        <AccountForm getAccounts={getAccounts} accountSelected={accountSelected} deselectAccount={deselectAccount}/>
-        <AccountList accounts={accounts} selectAccount={selectAccount} deleteAccounts={deleteAccounts} getId={getID} id={id}/>
+        <AccountForm getAccounts={getAccounts} accountSelected={accountSelected} deselectAccount={deselectAccount} getId={getID} selectAccount={selectAccount}/>
+        <AccountList accounts={accounts} selectAccount={selectAccount} deleteAccounts={deleteAccounts} getId={getID} id={id} deselectAccount={deselectAccount}/>
       </div>
     </div>
   );

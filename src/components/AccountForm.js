@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
-const AccountForm = ({getAccounts,accountSelected,deselectAccount}) => {
+const AccountForm = ({getAccounts,accountSelected,deselectAccount,getId,selectAccount}) => {
 
     const [email,setEmail] = useState("")
     const [password,setPassword] = useState("")
@@ -88,7 +88,11 @@ const AccountForm = ({getAccounts,accountSelected,deselectAccount}) => {
                                 </div>
                                 <div className="mb-3 row">
                                     <button type="submit" className="btn btn-primary col send" data-bs-dismiss="modal">Agree</button>
-                                    <button type="button" className="btn btn-danger col cancel" data-bs-dismiss="modal" onClick={()=>deselectAccount()}>Cancel</button>
+                                    <button type="button" className="btn btn-danger col cancel" data-bs-dismiss="modal" onClick={()=>{
+                                        getId(null)
+                                        selectAccount(null)
+                                        deselectAccount()
+                                        }}>Cancel</button>
                                 </div>
                             </form>
                         </div>

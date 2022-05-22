@@ -1,5 +1,5 @@
 
-const AccountList = ({accounts,selectAccount,deleteAccounts,getId,id}) => {
+const AccountList = ({accounts,selectAccount,deleteAccounts,getId,id,deselectAccount}) => {
 
     return (
         <>
@@ -8,14 +8,26 @@ const AccountList = ({accounts,selectAccount,deleteAccounts,getId,id}) => {
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalToggleLabel2">Delet user</h5>
-                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={()=>getId(null)}></button>
+                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={()=>{
+                                getId(null)
+                                selectAccount(null)
+                                deselectAccount()
+                                }}></button>
                         </div>
                         <div className="modal-body">
                             Are you sure you want to delete the user?
                         </div>
                         <div className="modal-footer">
-                            <button className="btn btn-danger" data-bs-dismiss="modal" onClick={()=>deleteAccounts(id)}>Delet</button>
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onClick={()=>getId(null)}>Cancel</button>
+                            <button className="btn btn-danger" data-bs-dismiss="modal" onClick={()=>{
+                                deleteAccounts(id)
+                                selectAccount(null)
+                                deselectAccount()
+                                }}>Delet</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onClick={()=>{
+                                getId(null)
+                                selectAccount(null)
+                                deselectAccount()
+                                }}>Cancel</button>
                         </div>
                     </div>
                 </div>
