@@ -15,6 +15,7 @@ const AccountList = ({accounts,selectAccount,deleteAccounts,getId,id}) => {
                         </div>
                         <div className="modal-footer">
                             <button className="btn btn-danger" data-bs-dismiss="modal" onClick={()=>deleteAccounts(id)}>Delet</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onClick={()=>getId(null)}>Cancel</button>
                         </div>
                     </div>
                 </div>
